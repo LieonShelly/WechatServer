@@ -8,7 +8,7 @@ var app = express();
 app.get('/', (req, res) => {
     res.send('express works');
 });
-app.get('/testwebhook', (req, res) => {
+app.get('/gittestwebhook', (req, res) => {
     res.send('webhook success');
 });
 app.use((req, res, next) => {
