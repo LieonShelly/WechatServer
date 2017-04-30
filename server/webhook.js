@@ -4,6 +4,7 @@ const handler = createHandler({
     secret: 'webhookSecret'
 });
 const rumCommand = (cmd, args, callback) => {
+    var spawn = require('child_process').spawn;
     const child = spawn(cmd, args)
     let response = ''
     child.stdout.on('data', buffer => response += buffer.toString())
