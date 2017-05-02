@@ -1,9 +1,8 @@
 const express = require('express');
 var router = express.Router();
-var jsSHA = require('jssha');
+var crypto = require('crypto');
 
 router.get('/wx', (req, res) => {
-    res.send(req.query);
     console.log(req.query);
     var token = "weixin";
     var signature = req.query.signature;
@@ -16,8 +15,11 @@ router.get('/wx', (req, res) => {
     oriArray[2] = token;
     oriArray.sort();
     var original = oriArray.join('');
-    var shaObj = new jsShA(original, 'TEXT');
-    var scyptoString = shaObj.getHash('SHA-1', 'HEX');
+    var sha1 = crypto.createHash('sha1');
+    sha1.update(original);
+    var scyptoString = sha1.digest('hex');
+    console.log(scyptoString);
+
     if (signature == scyptoString) {
         res.send('   //验证成功');
     } else {

@@ -12,7 +12,6 @@
     "dependencies": {
         "express": "^4.15.2",
         "github-webhook-handler": "^0.6.0",
-        "mongoose": "^4.9.6",
-        "jssha": "^2.2.0"
+        "mongoose": "^4.9.6"
     }
 }
