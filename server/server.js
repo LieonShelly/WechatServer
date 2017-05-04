@@ -2,7 +2,7 @@ var express = require('express');
 const http = require('http');
 const path = require('path');
 const handler = require('./webhook');
-const port = "3000";
+const port = "80";
 let router = require('./routes/we_chat');
 var app = express();
 
@@ -19,5 +19,5 @@ app.use((req, res, next) => {
     });
 });
 app.listen(port, () => {
-    console.log('server is running on port ' + '3000');
+    console.log('server is running on port ' + port);
 });
